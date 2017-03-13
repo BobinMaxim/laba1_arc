@@ -13,7 +13,7 @@ namespace model
         public string Number{ get; set; }
         public TimeSpan Detention { get; set; }
         public DateTime StartDetention { get; set; }
-       
+        public DateTime StartDetention1 { get; set; }
         public bool IsPrisoner
         {
             get { return DateTime.Now > StartDetention.Add(Detention); }
