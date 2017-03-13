@@ -5,6 +5,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using model;
+using System.IO;
 
 namespace DAL
 {
@@ -17,7 +18,7 @@ namespace DAL
             new Prisoner
             {
                 Name = "Pr1",
-                Number = "123",
+                Number = "123", 
                 Detention = new TimeSpan(5, 0, 0, 0),
                 StartDetention = DateTime.Now - new TimeSpan(5, 0, 0, 0)
             },
