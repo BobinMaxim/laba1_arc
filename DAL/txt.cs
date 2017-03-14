@@ -14,19 +14,24 @@ namespace DAL
     {
         public List<Prisoner> GetALL()
         {
-            return new List<Prisoner>
-        {
-            new Prisoner
-            {
-                Name = File.ReadLines("input.txt").Skip(1).First(),
-                Number = "123",
-                Detention = new TimeSpan(5, 0, 0, 0),
-                StartDetention = DateTime.Now - new TimeSpan(5, 0, 0, 0)
-            }   
-          
-          
-        };
+            string[] names = System.IO.File.ReadAllLines(@"names.txt");
 
+            IEnumerable<Prisoner> queryNames =
+                from nameLine in names
+                let splitName = nameLine.Split(';')
+
+                select new Prisoner()
+                {
+                    Name = splitName[0],
+                    Number = splitName[1],
+                    Detention = TimeSpan.Parse(splitName[2]),
+                    StartDetention = Convert.ToDateTime(splitName[3])
+                };
+            List<Prisoner> Prisoners = queryNames.ToList();
+
+            return Prisoners;
+
+          
         }
     }
 }

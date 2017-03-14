@@ -21,7 +21,7 @@ namespace viewmodel
 
         public MainWindowViewModel()
         {
-            var rep = new fakerep();
+            var rep = new txt();
             Prisoners = rep.GetALL();
             IsPrisoners = Prisoners
                 .Where(p => p.IsPrisoner)
