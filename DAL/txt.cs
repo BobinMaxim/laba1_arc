@@ -24,8 +24,8 @@ namespace DAL
                 {
                     Name = splitName[0],
                     Number = splitName[1],
-                    Detention = TimeSpan.Parse(splitName[2]),
-                    StartDetention = Convert.ToDateTime(splitName[3])
+                   // Detention = TimeSpan.Parse(splitName[2]),
+                   // StartDetention = Convert.ToDateTime(splitName[3])
                 };
             List<Prisoner> Prisoners = queryNames.ToList();
 

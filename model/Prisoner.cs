@@ -11,12 +11,21 @@ namespace model
     {
         public string Name { get; set; }
         public string Number{ get; set; }
-        public TimeSpan Detention { get; set; }
-        public DateTime StartDetention { get; set; }
-       
-        public bool IsPrisoner
+        /* public TimeSpan Detention { get; set; }
+         public DateTime StartDetention { get; set; }
+
+         public bool IsPrisoner
+         {
+             get { return DateTime.Now > StartDetention.Add(Detention); }
+         }*/
+
+        public int Id { get; set; }
+        public virtual IK IK { get; set; }
+        public int? CountMonth { get; set; }
+        public bool isPrisoner()
         {
-            get { return DateTime.Now > StartDetention.Add(Detention); }
+            if (CountMonth == 0) return false;
+            else return true;
         }
 
     }

@@ -21,14 +21,23 @@ namespace viewmodel
 
         public MainWindowViewModel()
         {
-            var rep = new txt();
+            //var rep = new txt();
+            var rep = new SqlRep();
+            var ik = new IK {Title = "test"};
+            var p = new Prisoner() { Name = "test",Number = "123",CountMonth = 1};
+            //rep.Add(p);
+           // rep.Save();
+
+            
             Prisoners = rep.GetALL();
             IsPrisoners = Prisoners
-                .Where(p => p.IsPrisoner)
+                .Where(q => q.isPrisoner())
                 .ToList();
             IsnotPrisoners = Prisoners
-                .Where(p =>! p.IsPrisoner)
+                .Where(q =>! q.isPrisoner())
                 .ToList();
+
+
         }
 
     }
